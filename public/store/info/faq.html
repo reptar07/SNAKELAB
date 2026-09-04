@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Preguntas Frecuentes | SNAKE LAB</title>
+  <link rel="stylesheet" href="/store/css/index.css?v=3" />
+  <style>
+    body {
+      background: #05070d;
+      color: #eef2ff;
+    }
+    .page-shell {
+      max-width: 1100px;
+      margin: 130px auto 80px;
+      padding: 0 24px;
+    }
+    .info-card {
+      background: linear-gradient(180deg, rgba(15, 18, 28, 0.9), rgba(9, 12, 18, 0.78));
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 24px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.04), 0 20px 60px rgba(0,0,0,0.25);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      padding: 28px 28px 10px;
+    }
+    .page-kicker {
+      color: #8b5cf6;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.72rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+      display: inline-block;
+    }
+    .page-title {
+      font-size: clamp(2.2rem, 3vw, 3.5rem);
+      font-weight: 800;
+      letter-spacing: -0.06em;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, #ffffff 0%, #dfe7ff 40%, #7fe6d2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .page-text {
+      color: rgba(222, 228, 242, 0.77);
+      font-size: 1.02rem;
+      margin-bottom: 28px;
+      line-height: 1.7;
+    }
+    .faq-list {
+      display: grid;
+      gap: 14px;
+    }
+    details {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 18px;
+      padding: 18px 20px;
+    }
+    summary {
+      cursor: pointer;
+      list-style: none;
+      font-weight: 700;
+      color: #f4f6ff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after {
+      content: "+";
+      font-size: 1.5rem;
+      color: #8b5cf6;
+      line-height: 1;
+    }
+    details[open] summary::after {
+      content: "−";
+    }
+    details p {
+      color: rgba(224,230,245,0.8);
+      line-height: 1.7;
+      margin-top: 14px;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      margin-top: 24px;
+      color: #8b5cf6;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    @media (max-width: 640px) {
+      .page-shell { margin-top: 104px; }
+      .info-card { padding: 20px 18px 8px; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="navbar-inner">
+      <a href="/" class="logo" id="logo">
+        <div class="logo-icon">
+          <img src="/uploads/images/logo.png" alt="SNAKE LAB Logo" style="height:100%; width:100%; object-fit:contain; transform:scale(1.8);" />
+        </div>
+        <span>SNAKE LAB</span>
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="/">Inicio</a>
+        <a href="/#products">Productos</a>
+        <a href="/#trending">Tendencia</a>
+        <a href="/#contact">Contacto</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="page-shell">
+    <section class="info-card">
+      <span class="page-kicker">Soporte</span>
+      <h1 class="page-title">Preguntas Frecuentes</h1>
+      <p class="page-text">Toda la información que necesitas antes, durante y después de tu compra en SNAKE LAB.</p>
+
+      <div class="faq-list">
+        <details open>
+          <summary>¿Cuánto tarda la fabricación de un producto?</summary>
+          <p>El tiempo de producción depende del tipo de pieza, tamaño, material y si requiere ajustes personalizados. En general, los pedidos estándar suelen tardar entre 3 y 7 días hábiles; los modelos más complejos pueden requerir más tiempo.</p>
+        </details>
+
+        <details>
+          <summary>¿Realizan pedidos personalizados?</summary>
+          <p>Sí. En SNAKE LAB trabajamos con diseños a medida, prototipos y piezas personalizadas según referencias, medidas, estilo o idea del cliente. Puedes escribirnos por WhatsApp con los detalles del proyecto.</p>
+        </details>
+
+        <details>
+          <summary>¿Puedo solicitar cambios en el diseño?</summary>
+          <p>Claro. Antes de iniciar la producción revisamos la propuesta y avanzamos en una primera iteración. Si hay ajustes que mejorar, los comentamos contigo y aplicamos las correcciones necesarias.</p>
+        </details>
+
+        <details>
+          <summary>¿Qué materiales usan?</summary>
+          <p>Trabajamos con filamentos y resinas de alta calidad, según la aplicación final de la pieza. Seleccionamos materiales según resistencia, acabado visual, detalle y uso del producto.</p>
+        </details>
+
+        <details>
+          <summary>¿Cómo se realiza el envío?</summary>
+          <p>Una vez finalizada la pieza realizamos el empaquetado con protección adecuada y coordinamos la entrega a través del servicio de envío disponible en tu zona. Te avisamos cuando tu pedido esté listo para despachar.</p>
+        </details>
+
+        <details>
+          <summary>¿Qué pasa si el producto llega dañado?</summary>
+          <p>Contacta con nosotros inmediatamente con fotos del embalaje y del producto. Revisaremos el caso y te daremos la solución correspondiente siguiendo nuestras políticas de atención al cliente.</p>
+        </details>
+      </div>
+
+      <a class="back-link" href="/">← Volver a la tienda</a>
+    </section>
+  </main>
+</body>
+</html>
