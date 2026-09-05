@@ -59,15 +59,16 @@ const ProductPage = {
     Checkout.init();
 
     const params = new URLSearchParams(window.location.search);
-    const id = params.get('id');
+    const pathMatch = window.location.pathname.match(/^\/producto\/([^/]+)\/?$/i);
+    const productKey = pathMatch ? decodeURIComponent(pathMatch[1]) : params.get('id');
 
-    if (!id) {
+    if (!productKey) {
       window.location.href = '/';
       return;
     }
 
     try {
-      this.currentProduct = await API.getProduct(id);
+      this.currentProduct = await API.getProduct(productKey);
       this.render();
       this.setupNavbar();
     } catch (error) {

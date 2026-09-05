@@ -191,13 +191,13 @@ const App = {
               <svg><use href="#icon-shopping-cart"/></svg>
               Agregar
             </button>
-            <button class="quick-btn quick-btn-view" onclick="event.stopPropagation(); window.location.href='/product.html?id=${Security.integer(product.id)}'">
+            <button class="quick-btn quick-btn-view" onclick="event.stopPropagation(); window.location.href='/producto/${encodeURIComponent(product.slug || product.id)}'">
               <svg><use href="#icon-eye"/></svg>
               Ver
             </button>
           </div>
         </div>
-        <div class="product-info" onclick="window.location.href='/product.html?id=${Security.integer(product.id)}'">
+        <div class="product-info" onclick="window.location.href='/producto/${encodeURIComponent(product.slug || product.id)}'">
           <div class="product-category-tag">${Security.escapeHtml(product.category_name || 'General')}</div>
           <h3 class="product-name">${Security.escapeHtml(product.name)}</h3>
           <div class="product-pricing">

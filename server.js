@@ -784,6 +784,10 @@ app.get('/product.html', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'store', 'product.html'));
 });
 
+app.get('/producto/:slug', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'store', 'product.html'));
+});
+
 app.get('*', (req, res) => {
   if (req.path.startsWith('/uploads/models/')) {
     return fail(res, 404, 'Modelo 3D no encontrado');
