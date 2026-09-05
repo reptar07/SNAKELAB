@@ -26,7 +26,8 @@ const Product3D = {
   },
 
   mobileModelUrl(url) {
-    return this.isMobileDevice() && /\.glb(\?.*)?$/i.test(url)
+    if (/\.mobile\.glb(\?.*)?$/i.test(url)) return url;
+    return /\.glb(\?.*)?$/i.test(url)
       ? url.replace(/\.glb(\?.*)?$/i, '.mobile.glb$1')
       : url;
   },
