@@ -1880,6 +1880,10 @@ ul, ol {
   pointer-events: none;
 }
 
+.maker-viewport-status[hidden] {
+  display: none !important;
+}
+
 .maker-viewport-tools {
   position: absolute;
   z-index: 4;
