@@ -122,7 +122,7 @@ const Product3D = {
     dracoLoader.setDecoderPath('/vendor/three/examples/jsm/libs/draco/');
     const loader = new GLTFLoader();
     loader.setDRACOLoader(dracoLoader);
-    const loadModel = (url) => {
+    const loadModel = (url, allowMobileFallback = true) => {
       if (this.state?.model) {
         scene.remove(this.state.model);
         this.state.model.traverse(object => {
@@ -170,6 +170,14 @@ const Product3D = {
       }, (progress) => {
         if (progress.total) status.textContent = `Cargando modelo 3D... ${Math.round(progress.loaded / progress.total * 100)}%`;
       }, () => {
+      if (allowMobileFallback && !mobile && /\.glb(\?.*)?$/i.test(url)) {
+        const mobileUrl = this.mobileModelUrl(url);
+        if (mobileUrl !== url) {
+          status.textContent = 'Cargando versión optimizada del modelo...';
+          loadModel(mobileUrl, false);
+          return;
+        }
+      }
       status.hidden = false;
       tools.hidden = true;
       document.getElementById('maker-toggle-bed')?.setAttribute('disabled', 'disabled');

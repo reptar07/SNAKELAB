@@ -1,3 +1,4 @@
 public/uploads/models/*.glb filter=lfs diff=lfs merge=lfs -text
 public/uploads/models/*.stl filter=lfs diff=lfs merge=lfs -text
 public/uploads/models/*.obj filter=lfs diff=lfs merge=lfs -text
+public/uploads/models/*.mobile.glb -filter -diff -merge -text
