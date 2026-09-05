@@ -163,6 +163,16 @@ async function initDatabase() {
     db.run('INSERT INTO admins (username, password) VALUES (?, ?)', ['admin', hashPassword(initialPassword)]);
   }
 
+  const resetPassword = String(process.env.ADMIN_RESET_PASSWORD || '');
+  if (resetPassword) {
+    if (resetPassword.length < 12) {
+      throw new Error('ADMIN_RESET_PASSWORD debe tener al menos 12 caracteres.');
+    }
+    db.run('UPDATE admins SET password = ? WHERE username = ?', [hashPassword(resetPassword), 'admin']);
+    db.run('DELETE FROM admin_sessions');
+    console.warn('ADMIN_RESET_PASSWORD aplicado al usuario admin. Elimina esta variable de Railway ahora.');
+  }
+
   // Seed categories
   const catCount = db.exec('SELECT COUNT(*) as count FROM categories');
   if (catCount[0].values[0][0] === 0) {
