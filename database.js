@@ -155,15 +155,15 @@ async function initDatabase() {
   // A new installation must explicitly provide its initial administrator
   // password. Never ship a usable default credential.
   const adminCount = db.exec('SELECT COUNT(*) as count FROM admins');
+  const resetPassword = String(process.env.ADMIN_RESET_PASSWORD || '');
   if (adminCount[0].values[0][0] === 0) {
-    const initialPassword = String(process.env.ADMIN_PASSWORD || '');
+    const initialPassword = String(process.env.ADMIN_PASSWORD || resetPassword || '');
     if (initialPassword.length < 12) {
-      throw new Error('ADMIN_PASSWORD debe definirse y tener al menos 12 caracteres antes del primer inicio.');
+      throw new Error('ADMIN_PASSWORD o ADMIN_RESET_PASSWORD debe definirse y tener al menos 12 caracteres antes del primer inicio.');
     }
     db.run('INSERT INTO admins (username, password) VALUES (?, ?)', ['admin', hashPassword(initialPassword)]);
   }
 
-  const resetPassword = String(process.env.ADMIN_RESET_PASSWORD || '');
   if (resetPassword) {
     if (resetPassword.length < 12) {
       throw new Error('ADMIN_RESET_PASSWORD debe tener al menos 12 caracteres.');
